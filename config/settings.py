@@ -100,10 +100,10 @@ DATABASES = {
     }
 }
 
-if os.environ.get('PRODUCTION') == "MIGRATE":
-    database_url = os.environ.get("DATABASE_URL")
-    DATABASES['default'] = dj_database_url.parse(database_url)
-else:
+database_url = os.environ.get("DATABASE_URL")
+DATABASES['default'] = dj_database_url.parse(database_url)
+
+if os.environ.get('PRODUCTION') != "MIGRATE":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
