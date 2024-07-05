@@ -74,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
+CORS_ALLOWED_ORIGINS = [
+    "https://backend-formulario-n10z.onrender.com"
+]
+
 CORS_ALLOWED_ALL_ORIGINS = True
 
 CORS_ALLOW_METHODS = (
