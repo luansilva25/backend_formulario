@@ -74,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "https://render.com/"]
+CORS_ALLOWED_ALL_ORIGINS = True
 
 CORS_ALLOW_METHODS = (
     "DELETE",
