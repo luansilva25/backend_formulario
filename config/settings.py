@@ -92,7 +92,19 @@ CORS_ALLOW_METHODS = (
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
+    "default":{
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3"
+    }
+}
+
+if os.environ.get('PRODUCTION') == "MIGRATE":
+    database_url = os.environ.get("DATABASE_URL")
+    DATABASES['default'] = dj_database_url.parse(database_url)
+else:
+    DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "HOST": "aws-0-sa-east-1.pooler.supabase.com",
@@ -102,11 +114,6 @@ DATABASES = {
             "PORT": "6543",
         }
 }
-
-if os.environ.get('PRODUCTION') == "MIGRATE":
-    database_url = os.environ.get("DATABASE_URL")
-    DATABASES['default'] = dj_database_url.parse(database_url)
-
 
 
 # Password validation
