@@ -77,7 +77,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "https://meuformulario.surge.sh"]
 
 CORS_ALLOWED_ALL_ORIGINS = True
 
